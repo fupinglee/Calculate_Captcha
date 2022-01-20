@@ -53,13 +53,13 @@ public class CaptchaConfig
         // 验证码图片高度 默认为50
         properties.setProperty(KAPTCHA_IMAGE_HEIGHT, "60");
         // 验证码文本字符大小 默认为40
-        properties.setProperty(KAPTCHA_TEXTPRODUCER_FONT_SIZE, "38");
+        properties.setProperty(KAPTCHA_TEXTPRODUCER_FONT_SIZE, "35");
         // KAPTCHA_SESSION_KEY
         properties.setProperty(KAPTCHA_SESSION_CONFIG_KEY, "kaptchaCodeMath");
         // 验证码文本生成器
         properties.setProperty(KAPTCHA_TEXTPRODUCER_IMPL, "com.KaptchaTextCreator");
         // 验证码文本字符间距 默认为2
-        properties.setProperty(KAPTCHA_TEXTPRODUCER_CHAR_SPACE, "5");
+        properties.setProperty(KAPTCHA_TEXTPRODUCER_CHAR_SPACE, "3");
         // 验证码文本字符长度 默认为5
         properties.setProperty(KAPTCHA_TEXTPRODUCER_CHAR_LENGTH, "6");
         // 验证码文本字体样式 默认为new Font("Arial", 1, fontSize), new Font("Courier", 1, fontSize)
