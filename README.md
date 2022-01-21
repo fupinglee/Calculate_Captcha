@@ -1,7 +1,7 @@
 # Calculate_Captcha
-若依证码生成器，用于训练用.
+若依验证码生成器，用于训练用.
 
-## 使用
+## 1.使用
 1.自行打包使用
 
 ```
@@ -9,13 +9,18 @@ git clone https://github.com/fupinglee/Calculate_Captcha
 cd Calculate_Captcha
 mvn clean package -DskipTests=true
 ```
-打开target下的jar文件即可执行
+然后执行target下的jar文件
 
 2.直接下载使用
 
 https://github.com/fupinglee/Calculate_Captcha/releases
-## 使用说明
+## 2.使用说明
 
+### 1.查看帮助
+```bash
+java -jar  CalculateCaptcha.jar -h 
+```
+结果：
 ```
 usage: java -jar CalculateCaptcha.jar [-h] -n NUM [-p PATH]
 generate Calculate Captcha .
@@ -24,12 +29,6 @@ named arguments:
   -h, --help             show this help message and exit
   -n NUM, --num NUM      生成的验证码数量
   -p PATH, --path PATH   验证码生成的位置 (default: train)
-  
-
-```
-### 1.查看帮助
-```bash
-java -jar  CalculateCaptcha.jar -h 
 ```
 
 ### 2.生成验证码
@@ -40,12 +39,14 @@ java -jar  CalculateCaptcha.jar -n 200 -p test
 样本生成完毕，请查看目录datasets/test
 ```
 
-## 说明
-直接使用的若依的生成验证码的程序
+## 3.说明
+直接使用的若依的生成验证码的程序。
 
 在生成验证码时，由于会出现`*`、`/`、`?`等，在使用其作为文件名时不合法，所以进行了替换。
 
-同时为了避免重复，拼接了时间戳的md5。
+例如将除号`/`替换为`÷`，乘号`*`替换为`×`，问号`?`替换为`？`。
+
+同时为了避免生成的验证码重复，生成的文件名拼接了时间戳的md5，并用`_`连接。
 
 主要代码如下：
 ```java
@@ -66,8 +67,8 @@ public class GenCalculateCaptchaTest {
 ```
 结果:
 ```
-替换前：0*6=?
-替换后：0×6=？_a21a06df03aac093674100949e8ff582.jpg
+生成的验证码：0*6=?
+保存的文件名：0×6=？_a21a06df03aac093674100949e8ff582.jpg
 ```
 
 图片示例：
